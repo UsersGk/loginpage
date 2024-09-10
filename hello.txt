@@ -1,0 +1,26 @@
+ SQL query with date range condition for searching results
+ SELECT * FROM `invoiceitem` WHERE id BETWEEN 104 and 109;
+ SELECT customer.invoiceno, customer.Dates, customer.CompanyName, customer.Address, customer.subtotal, customer.Discountper, customer.Netamount, invoiceitem.sno, invoiceitem.itemName, invoiceitem.Qty, invoiceitem.price, invoiceitem.total,customer.Narration FROM `customer` INNER JOIN invoiceitem ON customer.invoiceno = invoiceitem.invoiceno WHERE customer.invoiceno = '$invoiceno';
+ SELECT customer.invoiceno, customer.Dates, customer.CompanyName, customer.Address, customer.subtotal, customer.Discountper, customer.Netamount, invoiceitem.sno, invoiceitem.itemName, invoiceitem.Qty, invoiceitem.price, invoiceitem.total, customer.Narration FROM `customer` INNER JOIN invoiceitem ON customer.invoiceno = invoiceitem.invoiceno WHERE customer.Dates BETWEEN 2080-1 AND 1234;
+SELECT customer.invoiceno, customer.Dates, customer.CompanyName, customer.Address, customer.subtotal, customer.Discountper, customer.Netamount, invoiceitem.sno, invoiceitem.itemName, invoiceitem.Qty, invoiceitem.price, invoiceitem.total, customer.Narration FROM `customer` INNER JOIN invoiceitem ON customer.invoiceno = invoiceitem.invoiceno WHERE customer.Dates BETWEEN 2080-1 AND 1234;
+
+
+//table of bank
+CREATE TABLE bank(
+    id INT(6) primary key AUTO_INCREMENT NOT NULL,
+    Bankname VARCHAR(255),
+    Accountno VARCHAR(255),
+    Balance VARCHAR(255)
+    );
+
+    //table of contra
+    CREATE TABLE contra(
+    id INT(6) primary key AUTO_INCREMENT NOT NULL,
+    Sno varchar(255),
+    customer varchar(255),
+    entriestype varchar(255),
+    Bankname VARCHAR(255),
+    Accountno VARCHAR(255),
+    Balance VARCHAR(255),
+    Narration varchar(255)
+    );
